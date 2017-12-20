@@ -20,7 +20,7 @@ public class CategoryController {
     @Autowired
     private CategoryDao categoryDao;
 
-    // Request path: /category
+    // Request path: /cheese
     @RequestMapping(value = "")
     public String index(Model model) {
 
@@ -32,18 +32,19 @@ public class CategoryController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model) {
+
         model.addAttribute("title", "Category");
         model.addAttribute("category", new Category());
         return "category/add";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid Category category, Errors errors) {
+    public String add(Model model,
+                      @ModelAttribute @Valid Category category, Errors errors) {
 
         if (errors.hasErrors()) {
             return "category/add";
         }
-
         categoryDao.save(category);
         return "redirect:";
     }

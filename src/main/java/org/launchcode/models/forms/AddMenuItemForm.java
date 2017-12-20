@@ -4,13 +4,13 @@ import org.launchcode.models.Cheese;
 import org.launchcode.models.Menu;
 
 public class AddMenuItemForm {
+
     private Menu menu;
     private Iterable<Cheese> cheeses;
     private int menuId;
     private int cheeseId;
 
-    public AddMenuItemForm() {
-    }
+    public AddMenuItemForm() {}
 
     public AddMenuItemForm(Menu menu, Iterable<Cheese> cheeses) {
         this.menu = menu;
